@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'exam/css/index.css' %}">
+    <title>Precision English</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="{% static 'exam/js/timer.js' %}"></script> 
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header class="container ">
+        <nav class="navbar navbar-expand-sm bg-light justify-content-space-around">
+            <h2>English</h2>
+            <h2>{{user.username}}</h2>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link timer" href="" id="timer"></a>
+                </li>
+                <a href="{% url 'instruction' %}"><button class="btn btn-success" onClick="getanswer();dosomething();">End Exam</button></a>
+            </ul>
+
+        </nav>
+    </header>
+    
+
+    <main>
+        <div class="container mt-5">
+            <div class="container-wrapper pt-5">
+                {% for e in essay%}
+                <h4>Passage {{e.pk}}</h4>
+                <h4>{{e.essay}}</h4>
+                    {% for m in e.english_set.all  %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Question {{m.pk}}</h4>
+                            <div class="card-text">
+                                    {{m.Quest}}
+                                    <ul class="row">
+                                        <li class="col-md-6 rb">
+                                            <input type="radio" value="{{m.op1}}" name='{{m.pk}}'>
+                                            <label for="a">A) {{m.op1}}</label>
+                                        </li>
+                                        <li class="col-md-6 rb">
+                                            <input type="radio" value="{{m.op2}}" name='{{m.pk}}'>
+                                            <label for="b">B) {{m.op2}}</label>
+                                        </li>
+                                        <li class="col-md-6 rb">
+                                            <input type="radio" value="{{m.op3}}" name='{{m.pk}}'>
+                                            <label for="c">C) {{m.op3}}</label>
+                                        </li>
+                                        <li class="col-md-6 rb">
+                                            <input type="radio" value="{{m.op4}}" name='{{m.pk}}'>
+                                            <label for="d">D) {{m.op4}}</label>
+                                        </li>
+                                        <li class="col-md-6 rb">
+                                            <input type="checkbox" style="display:none;" value="{{m.ans}}" name='{{m.pk}}'>
+                                        </li>
+                                    </ul>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor%}
+                {% endfor %}
+                
+                <a href="{% url 'instruction' %}"><button class="btn btn-success" value="submit" id="b1" onClick="getanswer();dosomething();">Submit</button></a>
+            </div>
+            
+        </div>
+        <form class="login100-form validate-form" method="post" action="{% url  'escore' %}  " style="display:none;">
+            {% csrf_token %}
+            <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                <input id="mscore" class="input100" type="text" style="display:none;" placeholder="Enter username" value="" name="ScoreLine">
+            </div>
+        </form>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+    <script src="{% static 'exam/js/submit.js' %}"></script>
+</body>
+</html>

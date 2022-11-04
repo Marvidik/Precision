@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>Precision Instructions</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'exam/lib/bootstrap/css/bootstrap.min.css'  %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'exam/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'exam/lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'exam/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'exam/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'exam/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'exam/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <img src="{% static 'exam/img/intro-img.svg'%}" alt="" class="img-fluid">
+      </div>
+
+      <div class="intro-info">
+        <h2>Select <br><span>The Subject</span><br> to start </h2>
+        <div>
+          <a href="{% url 'english'%}" class="btn-get-started scrollto">English</a>
+          <a href="{% url 'questions'%}" class="btn-services scrollto">Mathematics</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Instructions</h3>
+          <p>Follow this onstructions if you want to pass or succedd in this exam.</p>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class="fa fa-"></i></div>
+              <h4 class="title"><a href="">No repeatition</a></h4>
+              <p class="description">Do not repeat any subjects twice as that will directly delete all your data in our database.</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-clock"></i></div>
+              <h4 class="title"><a href="">Time</a></h4>
+              <p class="description">You have limited time to finish the exam. endevour to answer fast as you will be loged out once its time</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-"></i></div>
+              <h4 class="title"><a href="">Secured</a></h4>
+              <p class="description">Make sure you dont give out your details as each login detail is unique to each candidate.</p>
+            </div>
+
+          </div>
+        </div>    
+        </div>
+
+      </div>
+    </section>
+  </main>
+<script src="{% static 'exam/js/main.js' %}"></script>
+
+</body>
+</html>

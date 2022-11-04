@@ -1,0 +1,40 @@
+
+body{
+    margin-top: 2rem;
+}
+
+.navbar{
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .navbar-nav{
+    justify-content: space-around;
+    
+}
+
+.container-wrapper{
+    margin-top: 4rem;
+}
+
+.nav-item{
+    padding-left: 3rem;
+}
+
+.card{
+    margin: 2rem 0;
+}
+
+.row{
+    list-style-type: none;
+}
+label{
+    padding-left: .4rem;
+}
+.col-md-6{
+    padding: .6rem;
+}
